@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definição de Categoria</title>
+    <style>
+        body {
+            background-color: #11538C;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+            background-color: #11538C;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            padding: 40px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .category-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .examples {
+            margin-top: 20px;
+        }
+
+        .example-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .example-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .example-image {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #00cc66;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .button.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <h1>DEFINA A SUA CATEGORIA</h1>
+            <ul class="category-list">
+                <li><input type="checkbox"> Saúde</li>
+                <li><input type="checkbox"> Educação</li>
+                <li><input type="checkbox"> Assistência Social</li>
+                <li><input type="checkbox"> Qualificação Profissional</li>
+                <li><input type="checkbox"> Meio Ambiente</li>
+                <li><input type="checkbox"> Geração de emprego/ renda</li>
+                <li><input type="checkbox"> Esporte</li>
+                <li><input type="checkbox"> Lazer</li>
+                <li><input type="checkbox"> Cultura</li>
+            </ul>
+        </div>
+        <div class="right-column">
+            <h1>NÃO SABE A SUA CATEGORIA? VEJA ALGUNS EXEMPLOS</h1>
+            <div class="examples">
+                <h2 class="example-title">• Educação</h2>
+                <p>Definição</p>
+                <div class="example-images">
+                    <div class="example-image"></div>
+                    <div class="example-image"></div>
+                    <div class="example-image"></div>
+                    <div class="example-image"></div>
+                </div>
+            </div>
+            <button class="button" id="finalizar">FINALIZAR</button>
+
+        </div>
+    </div>
+</body>
+<script>
+    let categoriaSelecionada = false;
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const button = document.getElementById('finalizar');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+            categoriaSelecionada = checkboxes.some((checkbox) => checkbox.checked);
+            button.disabled =!categoriaSelecionada;
+            button.classList.toggle('active', categoriaSelecionada);
+        });
+    });
+
+    function finalizar() {
+        if (categoriaSelecionada) {
+            window.location.href = 'pagina_de_perfil.html'; // Substitua pelo URL da nova página
+        }
+    }
+</script>
+</html>

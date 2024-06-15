@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Cadastro</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #11538C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            display: flex;
+            background-color: ;
+            box-shadow: 10px 10px 20px black;
+            border-radius: 5px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .login-left {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-left img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .login-right {
+            width: 50%;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para o formulário de registro */
+        #registerForm,
+        #forgotPasswordForm {
+            display: none; /* Oculto por padrão */
+        }
+
+        #loginForm {
+            display: block; /* Visível por padrão */
+        }
+
+        /* Estilos para o ícone de emoji */
+        .emoji {
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <img src="projeto fortes.jpg" alt="Imagem do Projeto Fortes">
+        </div>
+        <div id="loginForm" class="login-right">
+            <h1>Faça seu Login</h1>
+            <form id="login-form" action="pagina_definir_categoria.html">
+                <label for="username">Nome de usuário/Email:</label>
+                <input placeholder="Digite seu nome de usuário ou Email" type="text" id="username" name="username" required>
+                <label for="password">Senha:</label>
+                <input placeholder="Digite sua senha" type="password" id="password" name="password">
+                <button type="submit" id="entrarButton">Entrar</button>
+                <p>Ainda não tem uma conta? <a href="#" onclick="showRegisterForm()">Cadastre-se! <span class="emoji">😁</span></a></p>
+                <p><a href="#forgotPasswordForm" onclick="showForgotPasswordForm()">Esqueci minha Senha <span class="emoji">☹️</span></a></p>
+            </form>
+        </div>
+
+        <div id="registerForm" class="login-right">
+            <h1>Cadastre-se</h1>
+            <form id="register-form">
+                <label for="nome">Nome de usuário:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email">
+                <button type="submit">Cadastrar</button>
+                <p>Já possui uma conta? <a href="#" onclick="showLoginForm()">Faça Login! <span class="emoji">😁</span></a></p>
+            </form>
+        </div>
+
+        <div id="forgotPasswordForm" class="login-right">
+            <h1>Esqueci minha Senha</h1>
+            <form id="forgot-password-form">
+                <label for="emailForgot">Email:</label>
+                <input type="email" id="emailForgot" name="emailForgot" placeholder="Digite seu email">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+        }
+
+        function showLoginForm() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+        }
+
+        function showForgotPasswordForm() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
